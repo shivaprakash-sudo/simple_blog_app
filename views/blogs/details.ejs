@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("../partials/head") %>
+
+    <body>
+        <%- include("../partials/header") %>
+            <div class="blog-details content">
+                <h2>
+                    <%= blog.title %>
+                </h2>
+                <div class="content">
+                    <p>
+                        <%= blog.body %>
+                    </p>
+                </div>
+
+                <!-- link to edit a blog -->
+                <!-- <a href="/blogs/edit/:id" class="update" data-doc="<%=blog.id%>">Edit Blog</a
+      > -->
+
+                <!-- link to delete a blog -->
+                <a class="delete" data-doc="<%=blog.id%>"><i class="material-icons">delete</i></a
+      >
+    </div>
+    <%- include("../partials/footer") %>
+
+    <!-- AJAX request for deleting a blog -->
+    <script>
+      const trash_can = document.querySelector("a.delete");
+
+      trash_can.addEventListener("click", (e) => {
+        const endpoint = `/blogs/${trash_can.dataset.doc}`;
+
+        fetch(endpoint, {
+          method: "DELETE",
+        })
+          .then((response) => response.json())
+          .then((data) => (window.location.href = data.redirect))
+          .catch((err) => console.log(err));
+      });
+    </script>
+  </body>
+</html>

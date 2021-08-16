@@ -1,12 +1,12 @@
 {
-    "name": "practice",
+    "name": "simple-blog-app",
     "version": "1.0.0",
-    "description": "Practice",
+    "description": "blog app",
     "main": "app.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "start": "node run app.js",
-        "devStart": "nodemon run app.js"
+        "start": "node app.js",
+        "devStart": "nodemon app.js"
     },
     "keywords": [],
     "author": "Shiva",

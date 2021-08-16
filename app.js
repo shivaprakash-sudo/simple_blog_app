@@ -8,11 +8,8 @@ const blogRoutes = require("./routes/blogRoutes");
 const app = express();
 
 // connect to database
-const dbURL =
-    "mongodb+srv://admin:admin123@blog-app.qh6eh.mongodb.net/node-blog?retryWrites=true&w=majority";
-
 mongoose
-    .connect(dbURL, {
+    .connect(process.env.dbURL, {
         useNewUrlParser: true,
         useUnifiedTopology: true,
     })
